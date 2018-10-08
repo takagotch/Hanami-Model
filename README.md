@@ -6,9 +6,9 @@ https://github.com/hanami/hanami
 
 
 ```
-
-
-
+gem 'hanami-model'
+bundle
+gem install hanami-model
 ```
 
 ```ruby
