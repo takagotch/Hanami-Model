@@ -63,15 +63,28 @@ Mutex.new.synchronize do
 end
 
 
-require 'han'
+require 'hanami/model'
+class User < Hanami::Entity
+end
+class UserRepository < Hanami::Repository
+end
+repository = UserRepository.new
+user = repository.create(name: 'Luca')
+puts user.created_at.to_s # => "2018-10-08 10:34:12 UTC"
+puts user.updated_at.to_s # => "2018-10-08 10:34:12 UTC"
+sleep 3
+user = repository.update(user.id, age: 34)
+puts user.created_at.to_s # => "2018-10-08 10:34:12 UTC"
+puts user.updated_at.to_s # => "2018-10-08 10:34:12 UTC"
 
-
-
-
-
+Hanami::Model.configure do
+  logger "log/development.log", level: :debug
+end
 
 ```
-
+---
+```
+```
 
 
 
