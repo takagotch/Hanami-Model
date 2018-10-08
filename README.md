@@ -47,8 +47,20 @@ class ArticleRepository < Hanami::Repository
 end
 
 
+require 'hanami/model'
+class UserRepository < Hanami::Repository
+  self.relation = :t_user_archive
+  mapping do
+    attribute :id, from: :i_user_id
+    attribute :name, :s_name
+    attribute :age, :i_age
+  end
+end
 
 
+Mutex.new.synchronize do
+  Hanami::Model.laod!
+end
 
 
 
