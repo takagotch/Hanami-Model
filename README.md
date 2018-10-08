@@ -12,6 +12,9 @@ gem install hanami-model
 ```
 
 ```ruby
+require 'hanami/model'
+class User < Hanami::Entity
+end
 
 
 
