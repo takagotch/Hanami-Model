@@ -34,8 +34,17 @@ require 'hanami/model'
 class Person < Hanami::Entity
 end
 
+ActicleRepository.new.where(author_id: 23).order(:published_at).limit(8)
 
 
+require 'hanami/model'
+class ArticleRepository < Hanami::Repository
+  def most_recent_by_author(author, limit: 8)
+    articles.where(author_id: author.id).
+      order(:published_at).
+      limit(limit)
+  end
+end
 
 
 
