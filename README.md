@@ -15,7 +15,8 @@ gem install hanami-model
 require 'hanami/model'
 class User < Hanami::Entity
 end
-
+class UserRepository < Hanami::Repository
+end
 
 
 
