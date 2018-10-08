@@ -30,6 +30,9 @@ updated.age # => 34
 repository.delete(user.id)
 
 
+require 'hanami/model'
+class Person < Hanami::Entity
+end
 
 
 
