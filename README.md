@@ -17,6 +17,12 @@ class User < Hanami::Entity
 end
 class UserRepository < Hanami::Repository
 end
+Hanami::Model.configure do
+  adapter :sql, 'postgres://username.password@localhost/bookshelf'
+end.load!
+repository = UserRepository.new
+user = repository.create(name: 'Luca')
+puts user.id # => 1
 
 
 
